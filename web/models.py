@@ -33,7 +33,7 @@ class Post(models.Model):
     is_top = models.BooleanField(u'置顶', default=False)
     access_count = models.IntegerField(u'浏览量', default=1, editable=False)
     category = models.ForeignKey('Category', verbose_name=u'所属分类')
-    tags = models.ManyToManyField('Tag', verbose_name=u'标签集合', null=True, blank=True)
+    tags = models.ManyToManyField('Tag', verbose_name=u'标签集合', blank=True)
     author = models.ForeignKey(User, verbose_name=u'作者')
 
     @staticmethod
