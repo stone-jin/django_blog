@@ -5,6 +5,7 @@
     <title>{{ title }}</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/layout.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <script src="{% static 'js/jquery2.1.4.js' %}"></script>
 </head>
 <body>
@@ -30,7 +31,7 @@
                     <a href="#" class="title">开发日志</a>
                 </div>
                 <div class="second">
-                    <a href="#">ZHIER的小博客开发日志 一直想学习Python,深知只有在扎入项目中开能学好编程这东西 趁现在有Digital Ocean的主机和zhier.tk域名,那还等什么呢? 先写个小日志把开发记录记下来呗! 2014-09-20 今天开始开发ZHIER的博客,今天基本上把博客做的能看了 你要是问我现在那些按钮能不能按,我只能说按坏了我会找你赔的... 先从网上找了个模板,这样就基本不用管CSS+JS了,看着样子还行,先将就下 做了3个Model,Post,Tag,Category 做了2个View,posts用来显示所有发布的文章,post来显示单一的文章 对了,这个也是我第一次使用MarkDown写东西,真心好用啊!! 2014</a>
+                    <p class="content">ZHIER的小博客开发日志 一直想学习Python,深知只有在扎入项目中开能学好编程这东西 趁现在有Digital Ocean的主机和zhier.tk域名,那还等什么呢? 先写个小日志把开发记录记下来呗! 2014-09-20 今天开始开发ZHIER的博客,今天基本上把博客做的能看了 你要是问我现在那些按钮能不能按,我只能说按坏了我会找你赔的... 先从网上找了个模板,这样就基本不用管CSS+JS了,看着样子还行,先将就下 做了3个Model,Post,Tag,Category 做了2个View,posts用来显示所有发布的文章,post来显示单一的文章 对了,这个也是我第一次使用MarkDown写东西,真心好用啊!! 2014</p>
                 </div>
                 <div class="third">
                     <a href="#">2015-10-7 17:04:00</a>
@@ -42,15 +43,19 @@
             </div>
             {% for post in posts %}
                 <div class="article">
-                    <a href="">标题：{{ post.title }}</a><br>
-                    <a href="">链接：{{ post.link }}</a><br>
-                    <a href="">snippet：{{ post.snippet }}</a><br>
-                    <a href="">mk_content: {{ post.mk_content }}</a><br>
-                    <a href="">content: {{ post.content }}</a><br>
-                    <a href="">add_time: {{ post.add_time }}</a><br>
-                    <a href="">publish_time: {{ post.publish_time }}</a><br>
-                    <a href="">update_time: {{ post.update_time }}</a><br>
-                    <a href="">status: {{ post.status }}</a>
+                    <div class="first">
+                        <a href="http://127.0.0.1:9000/article/{{ post.link }}.html" class="title">{{ post.title }}</a>
+                    </div>
+                    <div class="second">
+                        <p class="content">{{ post.snippet }}</p>
+                    </div>
+                    <div class="third">
+                        <a href="#">{{ post.update_time|date:"Y-m-d H:i:s"}}</a>
+                        <a href="#">{{ post.author }}</a>
+                        <a href="#">开发日志</a>
+                        <a href="#">1 Comments</a>
+                        <a href="#">Continue reading</a>
+                    </div>
                 </div>
             {% endfor %}
         </div>

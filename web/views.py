@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, Http404
 from django.template import RequestContext
 from models import Post
 
@@ -14,7 +14,11 @@ from models import Post
 def home(request):
     assert isinstance(request, HttpRequest)
 
+    post_num = Post.objects.count()
     posts = Post.objects.all()
+
+    # 计算总页数
+    post_page = post_num / 5 + 1
 
     return render(
         request,
@@ -22,6 +26,28 @@ def home(request):
         RequestContext(request, {
             'title': 'Home Page',
             'posts': posts,
+        })
+    )
+
+
+# @brief : 文章阅读
+# @author: stone-jin
+# @time  : 2015-10-07
+# @email : 1520006273@qq.com
+def article(request, link):
+    assert isinstance(request, HttpRequest)
+
+    try:
+        post = Post.objects.get(link=link)
+    except Exception, e:
+        print(e.message)
+        return Http404
+
+    return render(
+        request,
+        'second.html',
+        RequestContext(request, {
+            'article': post,
         })
     )
 
