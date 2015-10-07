@@ -24,7 +24,6 @@ a{
 }
 
 .header .left{
-    width: 400px;
     height: 100%;
     float: left;
 }
@@ -56,6 +55,7 @@ a{
 /* 中间区域 */
 .center{
     width: 1280px;
+    min-height: 700px;
     margin: 40px auto 40px;
 }
 
@@ -66,7 +66,7 @@ a{
 /* 底部 */
 .bottom{
     width: 100%;
-    height: 80px;
+    height: 100px;
     margin: 0 auto;
     border-top: solid 4px #000;
     background-color: #262A30;

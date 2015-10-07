@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block my_css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="left">
+        {% for post in posts %}
+            <div class="article">
+                <div class="first">
+                    <a href="{{ my_domain }}/article/{{ post.link }}.html" class="title">{{ post.title }}</a>
+                </div>
+                <div class="second">
+                    <p class="content">{{ post.snippet }}</p>
+                </div>
+                <div class="third">
+                    <a href="#">{{ post.update_time|date:"Y-m-d H:i:s"}}</a>
+                    <a href="#">{{ post.author }}</a>
+                    <a href="#">开发日志</a>
+                    <a href="#">1 Comments</a>
+                    <a href="#">Continue reading</a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="nav">
+            {% for page in post_page_list %}
+                <a href="{{ my_domain }}/{{ page }}" class="nav_page">{{ page }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="right">
+        <div class="category">
+            <a>所有分类</a>
+        </div>
+        <div class="tags">
+            <a>标签</a>
+        </div>
+        <div class="frind_link">
+            <a href="#">友情链接</a>
+        </div>
+    </div>
+{% endblock %}

@@ -84,3 +84,20 @@ class Tag(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+# @brief : 我的介绍
+# @author: stone-jin
+# @time  : 2015-10-08
+# @email : 1520006273@qq.com
+class Introduce(models.Model):
+    mk_content = models.TextField(u'Markdown内容', default='')
+    content = models.TextField(u'内容')
+
+    def save(self, *args, **kwargs):
+        import markdown
+        self.content = markdown.markdown(self.mk_content, ['codehilite'])
+        super(Introduce, self).save(*args, **kwargs)
+
+    def __unicode__(self):
+        return u'个人介绍'

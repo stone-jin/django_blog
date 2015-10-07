@@ -5,18 +5,20 @@
     <title>{{ title }}</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/layout.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% block my_css %}
+    {% endblock %}
     <script src="{% static 'js/jquery2.1.4.js' %}"></script>
 </head>
 <body>
     <div class="header">
         <div class="wrapper">
             <div class="left">
-                <a href="#" id="first" class="selected">首页</a>
-                <a href="#">归档</a>
-                <a href="#">分类</a>
-                <a href="#">链接</a>
-                <a href="http://127.0.0.1:9000/about">关于</a>
+                <a href="{{ my_domain }}" id="first" class="selected">首页</a>
+                <a href="{{ my_domain }}">文章</a>
+                <a href="{{ my_domain }}/cool_blog">收藏的博客</a>
+                <a href="{{ my_domain }}/join_activity">参加过的活动</a>
+                <a href="{{ my_domain }}/works">我的作品</a>
+                <a href="{{ my_domain }}/about">关于我</a>
             </div>
             <div class="right">
                 <a href="#">搜索</a>
@@ -25,48 +27,8 @@
     </div>
 
     <div class="center">
-        <div class="left">
-            <div class="article">
-                <div class="first">
-                    <a href="#" class="title">开发日志</a>
-                </div>
-                <div class="second">
-                    <p class="content">ZHIER的小博客开发日志 一直想学习Python,深知只有在扎入项目中开能学好编程这东西 趁现在有Digital Ocean的主机和zhier.tk域名,那还等什么呢? 先写个小日志把开发记录记下来呗! 2014-09-20 今天开始开发ZHIER的博客,今天基本上把博客做的能看了 你要是问我现在那些按钮能不能按,我只能说按坏了我会找你赔的... 先从网上找了个模板,这样就基本不用管CSS+JS了,看着样子还行,先将就下 做了3个Model,Post,Tag,Category 做了2个View,posts用来显示所有发布的文章,post来显示单一的文章 对了,这个也是我第一次使用MarkDown写东西,真心好用啊!! 2014</p>
-                </div>
-                <div class="third">
-                    <a href="#">2015-10-7 17:04:00</a>
-                    <a href="#">stone-jin</a>
-                    <a href="#">开发日志</a>
-                    <a href="#">1 Comments</a>
-                    <a href="#">Continue reading</a>
-                </div>
-            </div>
-            {% for post in posts %}
-                <div class="article">
-                    <div class="first">
-                        <a href="http://127.0.0.1:9000/article/{{ post.link }}.html" class="title">{{ post.title }}</a>
-                    </div>
-                    <div class="second">
-                        <p class="content">{{ post.snippet }}</p>
-                    </div>
-                    <div class="third">
-                        <a href="#">{{ post.update_time|date:"Y-m-d H:i:s"}}</a>
-                        <a href="#">{{ post.author }}</a>
-                        <a href="#">开发日志</a>
-                        <a href="#">1 Comments</a>
-                        <a href="#">Continue reading</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="right">
-            <div class="category">
-                <a>Categories</a>
-            </div>
-            <div class="tags">
-                <a>Popular tags</a>
-            </div>
-        </div>
+        {% block content %}
+        {% endblock %}
     </div>
 
     <div class="bottom">

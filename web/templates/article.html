@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block my_css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/article.css'%}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="article">
+        <div class="first">
+            <a href="#">开发日志</a>
+        </div>
+        <div class="second">
+            <a href="#">2015.10.7 21:26:00</a>
+            <a href="#">Stone-jin</a>
+            <a href="#">开发日志</a>
+            <a href="#">1 comment</a>
+        </div>
+        <div class="content">
+            {% autoescape off %}
+            {{ article.content }}
+            {% endautoescape %}
+        </div>
+    </div>
+{% endblock %}

@@ -57,6 +57,22 @@
     margin-right: 10px;
 }
 
+.center .left .nav{
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.center .left .nav .nav_page{
+    padding: 7px;
+    border: solid 1px #AAAAAA;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.center .left .nav .nav_page:hover{
+    background-color: darkgray;
+}
+
 .center .right{
     width: 22%;
     height: 100%;
