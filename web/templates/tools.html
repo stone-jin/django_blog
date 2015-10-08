@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for tool in all_tool %}
+        <a href="{{ tool.link }}" target="_blank">{{ tool.name }}</a><br>
+    {% endfor %}
+{% endblock %}

@@ -152,3 +152,15 @@ class CollectBlogTag(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+# @brief : 工具集
+# @author: stone-jin
+# @time  : 2015-10-09
+# @email : 1520006273@qq.com
+class Tools(models.Model):
+    name = models.CharField(u'工具名', unique=True, max_length=150)
+    link = models.URLField(u'链接')
+
+    def __unicode__(self):
+        return self.name

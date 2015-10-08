@@ -4,7 +4,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, Http404
 from django.template import RequestContext
-from models import Post, Introduce, FriendLink, Tag, Category, CollectBlog
+from models import Post, Introduce, FriendLink, Tag, Category, CollectBlog, Tools
 from config import my_domain
 
 
@@ -158,5 +158,26 @@ def works(request):
         RequestContext(request, {
             'my_domain': my_domain,
             'title': '我的作品',
+        })
+    )
+
+
+# @brief : 工具
+# @author: stone-jin
+# @time  : 2015-10-09
+# @email : 1520006273@qq.com
+def tools(request):
+    assert isinstance(request, HttpRequest)
+
+    # 获取所有工具集
+    all_tool = Tools.objects.all()
+
+    return render(
+        request,
+        'tools.html',
+        RequestContext(request, {
+            'my_domain': my_domain,
+            'all_tool': all_tool,
+            'title': '工具集'
         })
     )

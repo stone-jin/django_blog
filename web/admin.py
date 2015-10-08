@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Post, Category, Tag, Introduce, FriendLink, CollectBlog, CollectBlogCategory, CollectBlogTag
+from models import *
 
 admin.site.register(Post)
 admin.site.register(Category)
@@ -9,3 +9,4 @@ admin.site.register(FriendLink)
 admin.site.register(CollectBlog)
 admin.site.register(CollectBlogCategory)
 admin.site.register(CollectBlogTag)
+admin.site.register(Tools)

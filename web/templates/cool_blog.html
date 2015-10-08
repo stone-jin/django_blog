@@ -2,6 +2,6 @@
 
 {% block content %}
     {% for blog in collect_blog %}
-        <a href="{{ blog.link }}">{{ blog.name }}</a><br>
+        <a href="{{ blog.link }}" target="_blank">{{ blog.name }}</a><br>
     {% endfor %}
 {% endblock %}

@@ -5,6 +5,8 @@
     <title>{{ title }}</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/layout.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'image/logo.ico' %}">
+    <link rel="bookmark" href="{% static 'image/logo.ico' %}">
     {% block my_css %}
     {% endblock %}
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
@@ -27,6 +29,7 @@
             <div class="left">
                 <a href="{{ my_domain }}" id="first" class="selected">首页</a>
                 <a href="{{ my_domain }}">文章</a>
+                <a href="{{ my_domain }}/tools">工具集</a>
                 <a href="{{ my_domain }}/cool_blog">收藏的博客</a>
                 <a href="{{ my_domain }}/join_activity">参加过的活动</a>
                 <a href="{{ my_domain }}/works">我的作品</a>
