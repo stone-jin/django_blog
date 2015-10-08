@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, Http404
 from django.template import RequestContext
 from models import Post, Introduce
+from config import my_domain
 
 
 # @brief : 首页
@@ -36,7 +37,7 @@ def home(request, page_index='1'):
         request,
         'index.html',
         RequestContext(request, {
-            'my_domain': 'http://127.0.0.1:9000',
+            'my_domain': my_domain,
             'title': 'Home Page',
             'posts': posts,
             'post_page_list': post_page_list,
@@ -61,7 +62,8 @@ def article(request, link):
         request,
         'article.html',
         RequestContext(request, {
-            'my_domain': 'http://127.0.0.1:9000',
+            'my_domain': my_domain,
+            'title': post.title,
             'article': post,
         })
     )
@@ -88,7 +90,7 @@ def about(request):
         request,
         'about.html',
         RequestContext(request, {
-            'my_domain': 'http://127.0.0.1:9000',
+            'my_domain': my_domain,
             'title': 'About me',
             'my_introduce': my_introduce[0],
         })
@@ -105,7 +107,7 @@ def cool_blog(request):
         request,
         'cool_blog.html',
         RequestContext(request, {
-            'my_domain': 'http://127.0.0.1:9000',
+            'my_domain': my_domain,
             'title': '收藏的博客',
         })
     )
@@ -121,7 +123,7 @@ def join_activity(request):
         request,
         'join_activity.html',
         RequestContext(request, {
-            'my_domain': 'http://127.0.0.1:9000',
+            'my_domain': my_domain,
             'title': '参加过的活动',
         })
     )
@@ -132,12 +134,12 @@ def join_activity(request):
 # @time  : 2015-10-08
 # @email : 1520006273@qq.com
 def works(request):
-    assert(request, HttpRequest)
+    assert isinstance(request, HttpRequest)
     return render(
         request,
         'works.html',
         RequestContext(request, {
-            'my_domain': 'http://127.0.0.1:9000',
+            'my_domain': my_domain,
             'title': '我的作品',
         })
     )

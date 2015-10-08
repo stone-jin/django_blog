@@ -1,0 +1,27 @@
+.center .article{
+    width: 900px;
+    padding: 20px;
+    -webkit-box-shadow: 1px 1px 3px #AAA;
+    -moz-box-shadow: 1px 1px 3px #AAA;
+    box-shadow: 1px 1px 3px #AAA;
+    border: 1px solid #E3E3E3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.center .article .first .title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.center .article .second{
+    margin: 10px 0 0 0;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #EEEEEE;
+}
+
+.center .article .content{
+    margin: 10px;
+    line-height: 30px;
+}
