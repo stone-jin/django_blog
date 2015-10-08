@@ -1,1 +1,7 @@
 {% extends 'layout.html' %}
+
+{% block content %}
+    {% for blog in collect_blog %}
+        <a href="{{ blog.link }}">{{ blog.name }}</a><br>
+    {% endfor %}
+{% endblock %}

@@ -101,3 +101,54 @@ class Introduce(models.Model):
 
     def __unicode__(self):
         return u'个人介绍'
+
+
+# @brief : 友情链接
+# @author: stone-jin
+# @time  : 2015-10-08
+# @email : 1520006273@qq.com
+class FriendLink(models.Model):
+    name = models.CharField(u'名称', max_length=150)
+    link = models.URLField(u'链接')
+
+    is_top = models.BooleanField(u'是否置顶')
+
+    def __unicode__(self):
+        return self.name
+
+
+# @brief : 收藏的博客
+# @author: stone-jin
+# @time  : 2015-10-08
+# @email : 1520006273@qq.com
+class CollectBlog(models.Model):
+    name = models.CharField(u'博客的名称', max_length=150)
+    link = models.URLField(u'链接')
+
+    category = models.ForeignKey('CollectBlogCategory', verbose_name=u'所属分类')
+    tag = models.ManyToManyField('CollectBlogTag', verbose_name=u'标签')
+
+    def __unicode__(self):
+        return self.name
+
+
+# @brief : 收藏的博客分类
+# @author: stone-jin
+# @time  : 2015-10-08
+# @email : 1520006273@qq.com
+class CollectBlogCategory(models.Model):
+    name = models.CharField(u'类型', unique=True, max_length=150)
+
+    def __unicode__(self):
+        return self.name
+
+
+# @brief : 收藏的博客的标签
+# @author: stone-jin
+# @time  : 2015-10-08
+# @email : 1520006273@qq.com
+class CollectBlogTag(models.Model):
+    name = models.CharField(u'标签名', unique=True, max_length=150)
+
+    def __unicode__(self):
+        return self.name

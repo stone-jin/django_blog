@@ -4,7 +4,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, Http404
 from django.template import RequestContext
-from models import Post, Introduce
+from models import Post, Introduce, FriendLink, Tag, Category, CollectBlog
 from config import my_domain
 
 
@@ -33,6 +33,15 @@ def home(request, page_index='1'):
     posts = Post.objects.filter(status='p', is_public=True)\
         .order_by('-is_top', '-publish_time')[5 * (page_index - 1): 5*page_index]
 
+    # 获取友情链接
+    friend_link = FriendLink.objects.all().order_by('-is_top')
+
+    # 获取标签
+    all_tags = Tag.objects.all()
+
+    # 获取所有分类
+    all_category = Category.objects.all()
+
     return render(
         request,
         'index.html',
@@ -40,6 +49,9 @@ def home(request, page_index='1'):
             'my_domain': my_domain,
             'title': 'Home Page',
             'posts': posts,
+            'all_category': all_category,
+            'all_tags': all_tags,
+            'friend_link': friend_link,
             'post_page_list': post_page_list,
         })
     )
@@ -103,11 +115,16 @@ def about(request):
 # @email : 1520006273@qq.com
 def cool_blog(request):
     assert isinstance(request, HttpRequest)
+
+    # 收藏的博客
+    collect_blog = CollectBlog.objects.all()
+
     return render(
         request,
         'cool_blog.html',
         RequestContext(request, {
             'my_domain': my_domain,
+            'collect_blog': collect_blog,
             'title': '收藏的博客',
         })
     )

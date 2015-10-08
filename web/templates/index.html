@@ -32,13 +32,22 @@
     </div>
     <div class="right">
         <div class="category">
-            <a>所有分类</a>
+            <a>所有分类</a><br>
+            {% for category in all_category %}
+                <a href="">{{ category.title }}</a><br>
+            {% endfor %}
         </div>
         <div class="tags">
-            <a>标签</a>
+            <a>标签</a><br>
+            {% for tag in all_tags %}
+                <a href="">{{ tag.title }}</a><br>
+            {% endfor %}
         </div>
-        <div class="frind_link">
-            <a href="#">友情链接</a>
+        <div class="friend_link">
+            <a href="#">友情链接</a><br>
+            {% for friend in friend_link %}
+                <a href="{{ friend.link }}">{{ friend.name }}</a><br>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
