@@ -1,0 +1,1 @@
+nohup python manage.py runserver 0.0.0.0:80 >/dev/null 2>&1 &
