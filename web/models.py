@@ -142,6 +142,7 @@ class FriendLink(models.Model):
 class CollectBlog(models.Model):
     name = models.CharField(u'博客的名称', max_length=150)
     link = models.URLField(u'链接')
+    description = models.TextField(u'博客介绍', default='')
 
     category = models.ForeignKey('CollectBlogCategory', verbose_name=u'所属分类')
     tag = models.ManyToManyField('CollectBlogTag', verbose_name=u'标签')

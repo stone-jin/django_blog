@@ -174,3 +174,14 @@ def tools(request):
             'title': '工具集'
         })
     )
+
+
+def test(request):
+
+    return render(
+        request,
+        'layout_test.html',
+        RequestContext(request, {
+            'title': '测试页面',
+        })
+    )
