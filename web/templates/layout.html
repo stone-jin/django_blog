@@ -10,18 +10,6 @@
     {% block my_css %}
     {% endblock %}
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
-    <!-- 腾讯统计 -->
-    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=51529780" charset="UTF-8"></script>
-    <!-- 百度统计 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?13e2e7c76fbc0cf6c9941c0c1d22c285";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 </head>
 <body>
     <div class="header">
@@ -58,4 +46,6 @@
     </div>
     <script src="{% static 'js/layout.js' %}"></script>
 </body>
+<!-- 腾讯统计 -->
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=51529780" charset="UTF-8"></script>
 </html>

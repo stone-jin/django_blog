@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, Http404
 from django.template import RequestContext
 from models import Post, Introduce, FriendLink, Tag, Category, CollectBlog, Tools
-from config import my_domain
 
 
 # @brief : 首页
