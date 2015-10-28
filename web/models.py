@@ -60,6 +60,10 @@ class Post(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = u'文章'
+        verbose_name_plural = u'文章'
+
 
 # @brief : 分类
 # @author: stone-jin
@@ -68,11 +72,13 @@ class Post(models.Model):
 class Category(models.Model):
     title = models.CharField(u'名称', max_length=50, db_index=True, unique=True)
 
-    class Meta:
-        ordering = ['title', ]
-
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        ordering = ['title', ]
+        verbose_name = u'文章分类'
+        verbose_name_plural = u'文章分类'
 
 
 # @brief : 标签
@@ -84,6 +90,10 @@ class Tag(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        verbose_name = u'标签'
+        verbose_name_plural = u'标签'
 
 
 # @brief : 我的介绍
@@ -102,6 +112,10 @@ class Introduce(models.Model):
     def __unicode__(self):
         return u'个人介绍'
 
+    class Meta:
+        verbose_name = u'我的介绍'
+        verbose_name_plural = u'我的介绍'
+
 
 # @brief : 友情链接
 # @author: stone-jin
@@ -115,6 +129,10 @@ class FriendLink(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = u'友情链接'
+        verbose_name_plural = u'友情链接'
 
 
 # @brief : 收藏的博客
@@ -131,6 +149,10 @@ class CollectBlog(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        verbose_name = u'收藏的博客'
+        verbose_name_plural = u'收藏的博客'
+
 
 # @brief : 收藏的博客分类
 # @author: stone-jin
@@ -141,6 +163,10 @@ class CollectBlogCategory(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = u'收藏的博客分类'
+        verbose_name_plural = u'收藏的博客分类'
 
 
 # @brief : 收藏的博客的标签
@@ -153,6 +179,10 @@ class CollectBlogTag(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        verbose_name = u'收藏的博客的标签'
+        verbose_name_plural = u'收藏的博客的标签'
+
 
 # @brief : 工具集
 # @author: stone-jin
@@ -164,3 +194,7 @@ class Tools(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = u'工具集'
+        verbose_name_plural = u'工具集'
