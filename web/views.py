@@ -46,7 +46,6 @@ def home(request, page_index='1'):
         request,
         'index.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'title': 'Home Page',
             'posts': posts,
             'all_category': all_category,
@@ -74,7 +73,6 @@ def article(request, link):
         request,
         'article.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'title': post.title,
             'article': post,
         })
@@ -85,6 +83,7 @@ def article(request, link):
 # @author: stone-jin
 # @time  : 2015-10-07
 # @email : 1520006273@qq.com
+# @note  : 请保证数据库中有数据，否则这边会404报错
 def about(request):
     assert isinstance(request, HttpRequest)
 
@@ -102,7 +101,6 @@ def about(request):
         request,
         'about.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'title': 'About me',
             'my_introduce': my_introduce[0],
         })
@@ -123,7 +121,6 @@ def cool_blog(request):
         request,
         'cool_blog.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'collect_blog': collect_blog,
             'title': '收藏的博客',
         })
@@ -140,7 +137,6 @@ def join_activity(request):
         request,
         'join_activity.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'title': '参加过的活动',
         })
     )
@@ -156,7 +152,6 @@ def works(request):
         request,
         'works.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'title': '我的作品',
         })
     )
@@ -176,7 +171,6 @@ def tools(request):
         request,
         'tools.html',
         RequestContext(request, {
-            'my_domain': my_domain,
             'all_tool': all_tool,
             'title': '工具集'
         })
