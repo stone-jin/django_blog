@@ -3,10 +3,19 @@
 }
 
 #center_left{
-    padding-left: 30px;
-    background-color: bisque;
+    padding-left: 18px;
 }
 
 #center_right{
-    background-color: aqua;
+}
+
+.article{
+    border-bottom:1px solid rgba(196, 196, 196, 0.47);
+    padding: 10px;
+    box-shadow: 0 0 2px #AAA;
+    margin-top: 10px;
+}
+
+.bottom{
+    margin-top: 20px;
 }
