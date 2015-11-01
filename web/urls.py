@@ -14,16 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from views import home, about, cool_blog, article, join_activity, works, tools, test
+from views import home, about, cool_blog, article, join_activity, works, tools, index, post
 
 urlpatterns = [
-    url(r'^$', home, name='home'),
-    url(r'^(\d+)$', home, name='home'),
-    url(r'^about$', about, name='about'),
-    url(r'^cool_blog$', cool_blog, name='cool_blog'),
-    url(r'^article/(\w+).html$', article, name='article'),
-    url(r'^join_activity$', join_activity, name='join_activity'),
-    url(r'^works$', works, name='works'),
-    url(r'^tools$', tools, name='tools'),
-    url(r'^test$', test, name='test')
+    url(r'^$', index, name='index'),
+    # url(r'^(\d+)$', index, name='index'),
+    # url(r'^about$', about, name='about'),
+    # url(r'^cool_blog$', cool_blog, name='cool_blog'),
+    # url(r'^article/(\w+).html$', article, name='article'),
+    # url(r'^join_activity$', join_activity, name='join_activity'),
+    # url(r'^works$', works, name='works'),
+    # url(r'^tools$', tools, name='tools'),
+    # url(r'^post/(.*)', post, name='post'),
 ]

@@ -54,9 +54,6 @@ class Post(models.Model):
         self.snippet = Post.strip_tags(self.content)[:321]
         super(Post, self).save(*args, **kwargs)
 
-    def get_absolute_url(self):
-        return reverse('blog:blog_detail', args=(self.id, self.link))
-
     def __unicode__(self):
         return self.title
 
@@ -103,6 +100,11 @@ class Tag(models.Model):
 class Introduce(models.Model):
     mk_content = models.TextField(u'Markdown内容', default='')
     content = models.TextField(u'内容')
+    net_name = models.CharField(u'网名', default='', max_length=32)
+    work = models.CharField(u'职业', default='', max_length=64)
+    home = models.CharField(u'籍贯', default='', max_length=64)
+    tel = models.CharField(u'电话', max_length=16, default='')
+    email = models.CharField(u'邮箱', max_length=32, default='')
 
     def save(self, *args, **kwargs):
         import markdown
@@ -199,3 +201,15 @@ class Tools(models.Model):
     class Meta:
         verbose_name = u'工具集'
         verbose_name_plural = u'工具集'
+
+
+class Photos(models.Model):
+    name = models.CharField(u'图片名称', max_length=150)
+    path = models.CharField(u'图片路径', unique=True, max_length=150)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'随机图片'
+        verbose_name_plural = u'随机图片'

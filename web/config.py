@@ -4,3 +4,4 @@
 __author__ = 'bing'
 
 # 全局变量
+theme = 'black_one'

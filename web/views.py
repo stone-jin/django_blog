@@ -4,7 +4,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, Http404
 from django.template import RequestContext
-from models import Post, Introduce, FriendLink, Tag, Category, CollectBlog, Tools
+from models import Post, Introduce, FriendLink, Tag, Category, CollectBlog, Tools, Photos
+from config import theme
 
 
 # @brief : 首页
@@ -43,7 +44,7 @@ def home(request, page_index='1'):
 
     return render(
         request,
-        'index.html',
+        'layout_test.html',
         RequestContext(request, {
             'title': 'Home Page',
             'posts': posts,
@@ -176,12 +177,28 @@ def tools(request):
     )
 
 
-def test(request):
+def index(request):
+
+    friend_url = FriendLink.objects.all()
+    photos = Photos.objects.all().order_by('?')[:5]
+    introduce = Introduce.objects.all().values('net_name', 'work', 'home', 'tel', 'email')[0]
+    posts = Post.objects.all().values('title', 'link', 'snippet', 'add_time', 'author')
 
     return render(
         request,
-        'layout_test.html',
+        theme + '/index.html',
         RequestContext(request, {
-            'title': '测试页面',
+            'title': '首页',
+            'friend_url': friend_url,
+            'photos': photos,
+            'introduce': introduce,
+            'posts': posts,
         })
+    )
+
+
+def post(request):
+    return render(
+        request,
+        theme + '/share.html'
     )
